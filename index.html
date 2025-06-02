@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeTriplet - Nahid Hasan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to CodeTriplet</h1>
+        <p>This website is maintained and owned by Nahid Hasan.</p>
+        <p>Team Member | Department of Software Engineering, SUST</p>
+
+        <button onclick="showAbout()">About</button>
+        <button onclick="checkPalindrome()">Palindrome Checker</button>
+        <button onclick="checkCase()">Uppercase/Lowercase Checker</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function showAbout() {
+            document.getElementById('output').innerText = 
+                "Nahid Hasan, student of Software Engineering at SUST, member of CodeTriplet.";
+        }
+
+        function checkPalindrome() {
+            const input = prompt("Enter a word to check if it's a palindrome:");
+            if (!input) return;
+            const reversed = input.split('').reverse().join('');
+            const result = input === reversed ? "Yes, it's a palindrome." : "No, it's not a palindrome.";
+            document.getElementById('output').innerText = result;
+        }
+
+        function checkCase() {
+            const char = prompt("Enter a single character:");
+            if (!char || char.length !== 1) {
+                document.getElementById('output').innerText = "Please enter a single character.";
+                return;
+            }
+            if (char >= 'A' && char <= 'Z') {
+                document.getElementById('output').innerText = "It's an uppercase letter.";
+            } else if (char >= 'a' && char <= 'z') {
+                document.getElementById('output').innerText = "It's a lowercase letter.";
+            } else {
+                document.getElementById('output').innerText = "It's not a letter.";
+            }
+        }
+    </script>
+</body>
+</html>

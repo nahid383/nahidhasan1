@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uppercase or Lowercase Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            color: #34495e;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+        .back-button {
+            margin-top: 40px;
+        }
+        .back-button a {
+            text-decoration: none;
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .back-button a:hover {
+            background-color: #1e8449;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Uppercase or Lowercase Checker</h1>
+
+    <input type="text" id="inputChar" placeholder="Enter a single character">
+    <button onclick="checkCase()">Check</button>
+
+    <p id="result"></p>
+
+    <div class="back-button">
+        <a href="index.html">← Back to Home</a>
+    </div>
+
+    <script>
+        function checkCase() {
+            const ch = document.getElementById("inputChar").value;
+            const result = document.getElementById("result");
+
+            if (ch.length !== 1 || !/[a-zA-Z]/.test(ch)) {
+                result.textContent = "Please enter a single letter (A-Z or a-z).";
+                return;
+            }
+
+            if (ch === ch.toUpperCase()) {
+                result.textContent = "It's an Uppercase Letter.";
+            } else {
+                result.textContent = "It's a Lowercase Letter.";
+            }
+        }
+    </script>
+
+</body>
+</html>
